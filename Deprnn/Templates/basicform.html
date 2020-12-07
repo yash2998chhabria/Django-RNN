@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form id="send_data" method="POST">
+  {% csrf_token %} 
+  <label for="fname">Enter Input:</label><br>
+  <input type="text" id="fname" name="textdata"><br>
+  <input type="submit" form="send_data" value="Submit">
+</form> 
+
+<p>{{faketext}}</p>
+
+</body>
+</html>
