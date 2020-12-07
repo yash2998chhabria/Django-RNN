@@ -32,7 +32,7 @@ SECRET_KEY = '946xhx(+tc1@iy8b=7+1=1@2v(p=43-ii7dt9sw$b*^#d)@w3)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['2998yashchhabria.pythonanywhere.com']
 
 
 # Application definition
@@ -136,37 +136,39 @@ MEDIA_ROOT= os.path.join(BASE_DIR,"media")
 
 
 ##### RNN ######
+from torchtext import vocab
+NEW_TEXT = vocab._default_unk_index
+NEW_TEXT =  torch.load(os.path.join(BASE_DIR,"vectors/vocabvec"))
+spacy.load('en_core_web_sm')
 
-
-NEW_TEXT =  torch.load(os.path.join(BASE_DIR,r"vectors\vocabvec"))
-nlp = spacy.load('en_core_web_sm', disable=['parser', 'tagger', 'ner'])
+NLP = spacy.load('en_core_web_sm', disable=['parser', 'tagger', 'ner'])
 
 
 class RNN(nn.Module):
-    
-    def __init__(self, vocab_size, embedding_dim, hidden_dim, 
+
+    def __init__(self, vocab_size, embedding_dim, hidden_dim,
                  output_dim, n_layers, bidirectional, dropout):
-        
+
         super().__init__()
-        
+
         self.embedding = nn.Embedding(vocab_size, embedding_dim)
-        
-        self.rnn = nn.GRU(embedding_dim, hidden_dim, num_layers = n_layers, 
+
+        self.rnn = nn.GRU(embedding_dim, hidden_dim, num_layers = n_layers,
                            bidirectional = bidirectional, dropout=dropout)
-        
+
         self.fc = nn.Linear(hidden_dim*2, output_dim)
-        
+
         self.dropout = nn.Dropout(dropout)
 
-        
+
     def forward(self, text):
-        
+
         embedded = self.dropout(self.embedding(text))
-        
+
         output, hidden = self.rnn(embedded)
-        
+
         hidden = self.dropout(torch.cat((hidden[-2,:,:], hidden[-1,:,:]), dim=1))
-       
+
         return self.fc(hidden.squeeze(0))
 
 input_dim = len(NEW_TEXT)
@@ -181,12 +183,12 @@ bidirectional = True
 
 dropout = 0.5
 
-new_model = RNN(input_dim, 
-            embedding_dim, 
-            hidden_dim, 
-            output_dim, 
-            n_layers, 
-            bidirectional, 
+NEW_MODEL = RNN(input_dim,
+            embedding_dim,
+            hidden_dim,
+            output_dim,
+            n_layers,
+            bidirectional,
             dropout)
-new_model.load_state_dict(torch.load(os.path.join(BASE_DIR,r'models\deprnnscrapped_state_dic')))
-new_model.eval()
+NEW_MODEL.load_state_dict(torch.load(os.path.join(BASE_DIR,'models/deprnnscrapped_state_dic')))
+NEW_MODEL.eval()
