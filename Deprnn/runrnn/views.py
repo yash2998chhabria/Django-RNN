@@ -40,7 +40,7 @@ def checkhome(request):
         indexed = [settings.NEW_TEXT.stoi[t] for t in tokenized]
         tensor = torch.LongTensor(indexed)
         tensor = tensor.unsqueeze(1)
-        prediction = torch.sigmoid(settings.NEW_MODEL(tensor)).item() 
+        prediction = torch.nn.functional.sigmoid(settings.NEW_MODEL(tensor)).item() 
         sent_tokens = sent_tokenize(textcon)
         numeric_symptoms_sent_list={}
         for sentence in sent_tokens:
@@ -48,7 +48,7 @@ def checkhome(request):
             indexed = [settings.OWN_TEXT.stoi[t] for t in tokenized]
             tensor = torch.LongTensor(indexed)
             tensor = tensor.unsqueeze(1)
-            prediction = torch.sigmoid(settings.OWN_DATA_MODEL(tensor))
+            prediction = torch.nn.functional.sigmoid(settings.OWN_DATA_MODEL(tensor))
             numeric_symptoms_sent_list[sentence]=prediction.item() * 100
         context = { "faketext" : prediction,
                     "list":numeric_symptoms_sent_list.items()
