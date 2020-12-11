@@ -19,6 +19,7 @@ joblib==0.17.0
 murmurhash==1.0.5
 nltk==3.5
 numpy==1.19.4
+Pillow==8.0.1
 plac==0.9.6
 preshed==3.0.5
 psycopg2==2.8.6
@@ -31,8 +32,9 @@ spacy==2.2.0
 sqlparse==0.4.1
 srsly==1.0.5
 thinc==7.1.1
-torch==1.7.0
+torch==1.6.0+cpu
 torchtext==0.3.1
+torchvision==0.7.0+cpu
 tqdm==4.54.1
 typing-extensions==3.7.4.3
 urllib3==1.26.2
