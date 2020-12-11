@@ -55,7 +55,7 @@ def checkhome(request):
         # context = { "faketext" : predicted,
         #             "list":numeric_symptoms_sent_list.items()
         #             }
-        return render(request,'contact.html',{"faketext":tokenized})
+        return render(request,'contact.html',{"faketext":predicted})
     return render(request,'home.html')
 
 def checkresults(request):
