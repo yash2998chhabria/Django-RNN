@@ -15,7 +15,7 @@ def displayform(request):
         tensor = torch.LongTensor(indexed)
         tensor = tensor.unsqueeze(1)
         tobesig = settings.NEW_MODEL(tensor)
-        prediction = torch.softmax(tobesig)
+        prediction = torch.sigmoid(tobesig)
         predicted = prediction.item() 
         sent_tokens = sent_tokenize(textcon)
         numeric_symptoms_sent_list=[]
@@ -25,7 +25,7 @@ def displayform(request):
             tensor = torch.LongTensor(indexed)
             tensor = tensor.unsqueeze(1)
             tobesig = settings.OWN_DATA_MODEL(tensor)
-            prediction = torch.softmax(tobesig)
+            prediction = torch.sigmoid(tobesig)
             numeric_symptoms_sent_list.append(prediction.item())
         print(numeric_symptoms_sent_list)
         context = { "faketext" : predicted,
