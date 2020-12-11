@@ -89,12 +89,12 @@
             <div class="wave" data-progress="{{value}}"></div>
           </div>
           <div class="card-footer bg-white">
-            <a data-toggle="modal" data-target="#{{key | slice:':3'}}{{value | slice:':2'}}"><h4 class="card-title">{{key | slice:":10"}}... {{value | slice:":4"}}</h4></a>
+            <a data-toggle="modal" data-target="#{{key | slice:':3'}}"><h4 class="card-title">{{key | slice:":10"}}... {{value | slice:":4"}}</h4></a>
           </div>
         </div>
       </div>
 
-      <div class="modal fade" id="{{key | slice:':3'}}{{value | slice:':2'}}" role="dialog">
+      <div class="modal fade" id="{{key | slice:':3'}}" role="dialog">
         <div class="modal-dialog">
         
           <!-- Modal content-->
