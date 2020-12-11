@@ -85,7 +85,7 @@
       {% for key, value in list %}
       <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
         <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" {% if value < 50 %}  data-color="#bdecf6" {% elif value > 90 %} data-color="#ffbcaa"  {% elif value > 70%} data-color="#fdb157" {% else} data-color="#9473e6"   {% endif %} >
+          <div class="position-relative rounded-top progress-wrapper" {% if value < 50 %}  data-color="#bdecf6" {% elif value > 90 %} data-color="#ffbcaa"  {% elif value > 70%} data-color="#fdb157" {% else %} data-color="#9473e6"   {% endif %} >
             <div class="wave" data-progress="{{value}}"></div>
           </div>
           <div class="card-footer bg-white">
