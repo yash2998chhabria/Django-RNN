@@ -37,8 +37,8 @@ def displayform(request):
 def checkhome(request):
     if request.method == 'POST':
         textcon = request.POST.get('newtextdata')
-        textcon = str(textcon)
-        tokenized = [tok.text for tok in settings.NLP.tokenizer(textcon)]
+        textconown = textcon[:50]
+        tokenized = [tok.text for tok in settings.NLP.tokenizer(textconown)]
         indexed = [settings.NEW_TEXT.stoi[t] for t in tokenized]
         tensor = torch.LongTensor(indexed)
         tensor = tensor.unsqueeze(1)
