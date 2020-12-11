@@ -53,7 +53,7 @@ def checkhome(request):
             numeric_symptoms_sent_list[sentence]=prediction.item()
         print(numeric_symptoms_sent_list)
         context = { "faketext" : predicted,
-                    "list":numeric_symptoms_sent_list
+                    "list":numeric_symptoms_sent_list.items()
                     }
         return render(request,'contact.html',context)
     return render(request,'home.html')
