@@ -50,7 +50,7 @@ def checkhome(request):
             tensor = tensor.unsqueeze(1)
             prediction = torch.sigmoid(settings.OWN_DATA_MODEL(tensor))
             numeric_symptoms_sent_list[sentence]=prediction.item() * 100
-        context = { "faketext" : predicted,
+        context = { "faketext" : prediction,
                     "list":numeric_symptoms_sent_list.items()
                     }
         return render(request,'contact.html',context)
