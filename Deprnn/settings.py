@@ -19,9 +19,7 @@ import re
 import torch.nn as nn
 from nltk.tokenize import sent_tokenize
 import nltk 
-import django_heroku
-import dj_database_url
-from decouple import config 
+nltk.download('punkt')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -59,7 +57,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
@@ -136,7 +133,6 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"static")
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT= os.path.join(BASE_DIR,"assets")
 
@@ -225,4 +221,3 @@ OWN_DATA_MODEL = RNN(input_dim,
 OWN_DATA_MODEL.load_state_dict(torch.load(os.path.join(BASE_DIR,'models/deprnnown_state_dic')))
 OWN_DATA_MODEL.eval()
 
-django_heroku.settings(locals())
