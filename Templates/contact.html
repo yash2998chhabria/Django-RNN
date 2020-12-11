@@ -89,8 +89,25 @@
             <div class="wave" data-progress="{{value}}"></div>
           </div>
           <div class="card-footer bg-white">
-            <a data-toggle="modal" data-target="#myModal"><h4 class="card-title">{{key | slice:":10"}}... {{value | slice:":4"}}</h4></a>
+            <a data-toggle="modal" data-target="#{{key | slice:':3'}}{{value | slice:':4'}}"><h4 class="card-title">{{key | slice:":10"}}... {{value | slice:":4"}}</h4></a>
           </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="{{key | slice:':3'}}{{value | slice:':4'}}" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <p>{{key}}</p>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div> -->
+          </div>
+          
         </div>
       </div>
       {% endfor %}
