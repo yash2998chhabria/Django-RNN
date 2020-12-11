@@ -35,25 +35,25 @@ def displayform(request):
 def checkhome(request):
     if request.method == 'POST':
         textcon = request.POST.get('newtextdata')
-        tokenized = [tok.text for tok in settings.NLP.tokenizer(textcon)]
-        indexed = [settings.NEW_TEXT.stoi[t] for t in tokenized]
-        tensor = torch.LongTensor(indexed)
-        tensor = tensor.unsqueeze(1)
-        prediction = torch.sigmoid(settings.NEW_MODEL(tensor)).item() 
-        # sent_tokens = sent_tokenize(textcon)
-        # numeric_symptoms_sent_list={}
-        # for sentence in sent_tokens:
-        #     tokenized = [tok.text for tok in settings.NLP.tokenizer(sentence)]
-        #     indexed = [settings.OWN_TEXT.stoi[t] for t in tokenized]
-        #     tensor = torch.LongTensor(indexed)
-        #     tensor = tensor.unsqueeze(1)
-        #     prediction = torch.sigmoid(settings.OWN_DATA_MODEL(tensor))
-        #     numeric_symptoms_sent_list[sentence]=prediction.item() * 100
-        # print(numeric_symptoms_sent_list)
+        # tokenized = [tok.text for tok in settings.NLP.tokenizer(textcon)]
+        # indexed = [settings.NEW_TEXT.stoi[t] for t in tokenized]
+        # tensor = torch.LongTensor(indexed)
+        # tensor = tensor.unsqueeze(1)
+        # prediction = torch.sigmoid(settings.NEW_MODEL(tensor)).item() 
+        sent_tokens = sent_tokenize(textcon)
+        numeric_symptoms_sent_list={}
+        for sentence in sent_tokens:
+            tokenized = [tok.text for tok in settings.NLP.tokenizer(sentence)]
+            indexed = [settings.OWN_TEXT.stoi[t] for t in tokenized]
+            tensor = torch.LongTensor(indexed)
+            tensor = tensor.unsqueeze(1)
+            prediction = torch.sigmoid(settings.OWN_DATA_MODEL(tensor))
+            numeric_symptoms_sent_list[sentence]=prediction.item() * 100
+        print(numeric_symptoms_sent_list)
         # context = { "faketext" : predicted,
         #             "list":numeric_symptoms_sent_list.items()
         #             }
-        return render(request,'contact.html',{"faketext":prediction})
+        return render(request,'contact.html',{"faketext":numeric_symptoms_sent_list.items()})
     return render(request,'home.html')
 
 def checkresults(request):
