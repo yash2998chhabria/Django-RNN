@@ -19,7 +19,7 @@ import re
 import torch.nn as nn
 from nltk.tokenize import sent_tokenize
 import nltk 
-nltk.download('punkt')
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

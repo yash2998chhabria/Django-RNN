@@ -4,7 +4,6 @@ import spacy
 from django.conf import settings
 from nltk.tokenize import sent_tokenize
 import nltk 
-nltk.download('punkt')
 # Create your views here.
 
 def displayform(request):

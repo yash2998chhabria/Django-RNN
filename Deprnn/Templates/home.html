@@ -119,14 +119,14 @@
       <div class="col-lg-8 mx-auto">
         <div class="bg-white rounded text-center p-5 shadow-down">
           <h4 class="mb-80">TYPE CONFESSION</h4>
-          <form id="send_data" method="POST" class="row align-items-center">
+          <form id="send_ui_data" method="POST" class="row align-items-center">
             {% csrf_token %} 
             <div class="col-12">
               <textarea name="message" id="textdata" name="textdata" class="form-control px-0 mb-4"
                 placeholder="Type Confession Here"></textarea>
             </div>
             <div class="col-lg-6 col-10 mx-auto">
-              <button type="submit" form="send_data" class="btn btn-primary w-100">send</button>
+              <button type="submit" form="send_ui_data" class="btn btn-primary w-100">send</button>
               <input type="submit" form="send_data" value="Submit">
             </div>
           </form>
