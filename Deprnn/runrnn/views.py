@@ -20,7 +20,7 @@ def displayform(request):
         sent_tokens = sent_tokenize(textcon)
         numeric_symptoms_sent_list=[]
         for sentence in sent_tokens:
-            tokenized = [tok.text for tok in nlp.tokenizer(sentence)]
+            tokenized = [tok.text for tok in settings.NLP.tokenizer(sentence)]
             indexed = [settings.OWN_TEXT.stoi[t] for t in tokenized]
             tensor = torch.LongTensor(indexed)
             tensor = tensor.unsqueeze(1)
