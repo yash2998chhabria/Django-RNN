@@ -85,11 +85,11 @@
       {% for key, value in list %}
       <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
         <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+          <div class="position-relative rounded-top progress-wrapper" {% if {{value}} < 50 %} data-color="#fdb157" {% elif {{value}} > 50%} data-color="#9473e6" {% elif {{value}} > 70%} data-color="#bdecf6" {% else %} data-color="#ffbcaa" {% endif %} >
             <div class="wave" data-progress="{{value}}"></div>
           </div>
           <div class="card-footer bg-white">
-            <a data-toggle="modal" data-target="#myModal"><h4 class="card-title">Web Design (90%)</h4></a>
+            <a data-toggle="modal" data-target="#myModal"><h4 class="card-title">{{key[:7]}}... {{value}}</h4></a>
           </div>
         </div>
       </div>
@@ -104,7 +104,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <p>Some text in the modal. Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.</p> <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>text</p>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <!-- <div class="modal-body">
           <p>Some text in the modal.</p>
