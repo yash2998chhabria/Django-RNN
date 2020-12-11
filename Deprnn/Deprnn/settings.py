@@ -216,5 +216,5 @@ OWN_DATA_MODEL = RNN(input_dim,
             bidirectional, 
             dropout)
 
-OWN_DATA_MODEL = torch.load(os.path.join(BASE_DIR,'models/seventysix.pt'))
+OWN_DATA_MODEL.load_state_dict(torch.load(os.path.join(BASE_DIR,'models/deprnnown_state_dic')))
 OWN_DATA_MODEL.eval()
