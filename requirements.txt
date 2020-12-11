@@ -1,4 +1,4 @@
--f /usr/share/pip-wheels
+-f  https://download.pytorch.org/whl/torch_stable.html
 asgiref==3.3.1
 blis==0.4.1
 catalogue==1.0.0
@@ -32,9 +32,9 @@ spacy==2.2.0
 sqlparse==0.4.1
 srsly==1.0.5
 thinc==7.1.1
-torch==1.6.0+cpu
+torch==1.5.0+cpu
+torchvision==0.6.0+cpu
 torchtext==0.3.1
-torchvision==0.7.0+cpu
 tqdm==4.54.1
 typing-extensions==3.7.4.3
 urllib3==1.26.2
