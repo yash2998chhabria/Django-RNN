@@ -15,22 +15,22 @@ def displayform(request):
         tensor = torch.LongTensor(indexed)
         tensor = tensor.unsqueeze(1)
         tobesig = settings.NEW_MODEL(tensor)
-        # prediction = torch.sigmoid(tobesig)
-        # predicted = prediction.item() 
-        # sent_tokens = sent_tokenize(textcon)
-        # numeric_symptoms_sent_list=[]
-        # for sentence in sent_tokens:
-        #     tokenized = [tok.text for tok in settings.NLP.tokenizer(sentence)]
-        #     indexed = [settings.OWN_TEXT.stoi[t] for t in tokenized]
-        #     tensor = torch.LongTensor(indexed)
-        #     tensor = tensor.unsqueeze(1)
-        #     tobesig = settings.OWN_DATA_MODEL(tensor)
-        #     prediction = torch.sigmoid(tobesig)
-        #     numeric_symptoms_sent_list.append(prediction.item())
-        # print(numeric_symptoms_sent_list)
-        # context = { "faketext" : predicted,
-        #             "list":numeric_symptoms_sent_list
-        #             }
+        prediction = torch.sigmoid(tobesig)
+        predicted = prediction.item() 
+        sent_tokens = sent_tokenize(textcon)
+        numeric_symptoms_sent_list=[]
+        for sentence in sent_tokens:
+            tokenized = [tok.text for tok in settings.NLP.tokenizer(sentence)]
+            indexed = [settings.OWN_TEXT.stoi[t] for t in tokenized]
+            tensor = torch.LongTensor(indexed)
+            tensor = tensor.unsqueeze(1)
+            tobesig = settings.OWN_DATA_MODEL(tensor)
+            prediction = torch.sigmoid(tobesig)
+            numeric_symptoms_sent_list.append(prediction.item())
+        print(numeric_symptoms_sent_list)
+        context = { "faketext" : predicted,
+                    "list":numeric_symptoms_sent_list
+                    }
         return render(request,'basicform.html',{"faketext":tokenized})
     return render(request,'basicform.html')
 
