@@ -17,6 +17,9 @@ import torch
 import torchtext
 import re
 import torch.nn as nn
+from nltk.tokenize import sent_tokenize
+import nltk 
+nltk.download('punkt')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -192,3 +195,26 @@ NEW_MODEL = RNN(input_dim,
             dropout)
 NEW_MODEL.load_state_dict(torch.load(os.path.join(BASE_DIR,'models/deprnnscrapped_state_dic')))
 NEW_MODEL.eval()
+
+OWN_TEXT =  torch.load(os.path.join(BASE_DIR,"vectors/vocabvecowndata"))
+input_dim = len(OWN_TEXT)
+
+embedding_dim = 100
+
+hidden_dim = 20
+output_dim = 1
+
+n_layers = 2
+bidirectional = True
+
+dropout = 0.5
+OWN_DATA_MODEL = RNN(input_dim, 
+            embedding_dim, 
+            hidden_dim, 
+            output_dim, 
+            n_layers, 
+            bidirectional, 
+            dropout)
+
+OWN_DATA_MODEL = torch.load(os.path.join(BASE_DIR,'models/seventysix.pt'))
+OWN_DATA_MODEL.eval()
