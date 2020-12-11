@@ -34,7 +34,7 @@ def displayform(request):
 
 def checkhome(request):
     if request.method == 'POST':
-        textcon = request.POST.get('textdata')
+        textcon = request.POST.get('newtextdata')
         settings.NEW_MODEL.eval()
         tokenized = [tok.text for tok in settings.NLP.tokenizer(textcon)]
         indexed = [settings.NEW_TEXT.stoi[t] for t in tokenized]
