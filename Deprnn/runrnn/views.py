@@ -31,7 +31,7 @@ def displayform(request):
         # context = { "faketext" : predicted,
         #             "list":numeric_symptoms_sent_list
         #             }
-        return render(request,'basicform.html',tokenized)
+        return render(request,'basicform.html',{"faketext":tokenized})
     return render(request,'basicform.html')
 
 def checkhome(request):
