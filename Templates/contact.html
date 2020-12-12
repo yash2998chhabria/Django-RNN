@@ -69,7 +69,7 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-12 ">
-          <h2 class="text-white"> {% if faketext > 50 %} Depression Symptoms May be Present {% else %} Depression Symptoms minimal or absent {% endif %}  <br>({{faketext}}%)</h2>   
+          <h2 class="text-white"> {% if faketext > 50 %} Depression Symptoms May be Present {% else %} Depression Symptoms minimal or absent {% endif %}  <br>({{faketext | slice:":4"}}%)</h2>   
         </div>
       </div>
     </div>
