@@ -35,7 +35,7 @@ SECRET_KEY = '946xhx(+tc1@iy8b=7+1=1@2v(p=43-ii7dt9sw$b*^#d)@w3)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['quiet-shore-90089.herokuapp.com','2998yashchhabria.pythonanywhere.com']
+ALLOWED_HOSTS = ['www.detectdepression.com','2998yashchhabria.pythonanywhere.com']
 
 
 # Application definition
