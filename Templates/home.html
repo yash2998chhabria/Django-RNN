@@ -57,7 +57,7 @@
         <h1 class="text-white font-tertiary">Check <br> Your  <br> Mindset</h1>
       </div>
       <div class="col-lg-6 mx-auto">
-        <a href="#textinput"></a><h1 class="text-white font-tertiary"><button type="button"  class="btn btn-dark w-100 "><h4 class="text-white">GET PREDICTION </h4></button></h1>
+        <a href="#textinput"><h1 class="text-white font-tertiary"><button type="button"  class="btn btn-dark w-100 "><h4 class="text-white">GET PREDICTION </h4></button></h1></a>
       </div>
     </div>
   </div>
@@ -119,12 +119,13 @@
     <div class="row">
       <div class="col-lg-8 mx-auto">
         <div class="bg-white rounded text-center p-5 shadow-down">
-          <h4 class="mb-80">TYPE CONFESSION</h4>
+          <h4 class="mb-30">TYPE CONFESSION</h4>
+          <p class="paragraph-lg text-dark" style="font-family: Garamond, serif;">Prompt: ijdfijaidfainjduhfi hdsudhfugd hdfuahhafjnana aifuahfuhafaf ahhfhaufudhfuahdufih</p>
           <form id="send_ui_data" method="POST" class="row align-items-center">
             {% csrf_token %}
-            <div class="col-12">
-              <p>Prompt: ijdfijaidfainjduhfi hdsudhfugd hdfuahhafjnana aifuahfuhafaf ahhfhaufudhfuahdufih</p>
-            </div>
+            <!--<div class="col-12">-->
+            <!--  <p class="font-secondary paragraph-lg text-dark">Prompt: ijdfijaidfainjduhfi hdsudhfugd hdfuahhafjnana aifuahfuhafaf ahhfhaufudhfuahdufih</p>-->
+            <!--</div>-->
             <div class="col-12">
               <textarea id="newtextdata" name="newtextdata" class="form-control px-0 mb-4"
                 placeholder="Type Confession Here"></textarea>
