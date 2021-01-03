@@ -59,4 +59,7 @@ def checkhome(request):
     return render(request,'home.html')
 
 def checkresults(request):
-    return render(request,'contact.html')    
+    return render(request,'contact.html')
+
+def aboutpage(request):
+    return render(request,'about.html')
