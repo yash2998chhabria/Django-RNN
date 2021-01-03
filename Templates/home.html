@@ -10,7 +10,7 @@
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
   <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
@@ -21,7 +21,7 @@
 
   <!-- Main Stylesheet -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  
+
   <!--Favicon-->
   <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
   <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
@@ -29,7 +29,7 @@
 </head>
 
 <body>
-  
+
 
 <header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
@@ -54,16 +54,16 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 mx-auto">
-        <h1 class="text-white font-tertiary">Check <br> Your  <br> Mindset</h1>   
+        <h1 class="text-white font-tertiary">Check <br> Your  <br> Mindset</h1>
       </div>
       <div class="col-lg-6 mx-auto">
-        <h1 class="text-white font-tertiary"><button type="button"  class="btn btn-dark w-100 "><h4 class="text-white">GET PREDICTION </h4></button></h1>   
+        <h1 class="text-white font-tertiary"><button type="button"  class="btn btn-dark w-100 "><h4 class="text-white">GET PREDICTION </h4></button></h1>
       </div>
     </div>
   </div>
-  <div class="layer-bg w-100">
-    <img class="img-fluid w-100" src="images/illustrations/leaf-bg.png" alt="bg-shape">
-  </div>
+  <!--<div class="layer-bg w-100">-->
+  <!--  <img class="img-fluid w-100" src="images/illustrations/leaf-bg.png" alt="bg-shape">-->
+  <!--</div>-->
   <div class="layer" id="l2">
     <img src="{% static 'images/illustrations/dots-cyan.png' %}" alt="bg-shape">
   </div>
@@ -99,6 +99,19 @@
 </section>
 <!-- /hero area -->
 
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto text-center">
+        <p class="font-secondary paragraph-lg text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <a href="about.html" class="btn btn-transparent">know more</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- contact -->
 <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
@@ -108,7 +121,7 @@
         <div class="bg-white rounded text-center p-5 shadow-down">
           <h4 class="mb-80">TYPE CONFESSION</h4>
           <form id="send_ui_data" method="POST" class="row align-items-center">
-            {% csrf_token %} 
+            {% csrf_token %}
             <div class="col-12">
               <textarea id="newtextdata" name="newtextdata" class="form-control px-0 mb-4"
                 placeholder="Type Confession Here"></textarea>
