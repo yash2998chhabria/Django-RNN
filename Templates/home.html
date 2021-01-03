@@ -33,7 +33,7 @@
 
 <header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="index.html">MINDSET</a>
+    <a class="navbar-brand font-tertiary h3" href="/">MINDSET</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
       aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
         <h1 class="text-white font-tertiary">Check <br> Your  <br> Mindset</h1>
       </div>
       <div class="col-lg-6 mx-auto">
-        <h1 class="text-white font-tertiary"><button type="button"  class="btn btn-dark w-100 "><h4 class="text-white">GET PREDICTION </h4></button></h1>
+        <a href="#textinput"></a><h1 class="text-white font-tertiary"><button type="button"  class="btn btn-dark w-100 "><h4 class="text-white">GET PREDICTION </h4></button></h1>
       </div>
     </div>
   </div>
@@ -114,7 +114,7 @@
 </section>
 
 <!-- contact -->
-<section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
+<section id="textinput" class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
@@ -122,6 +122,9 @@
           <h4 class="mb-80">TYPE CONFESSION</h4>
           <form id="send_ui_data" method="POST" class="row align-items-center">
             {% csrf_token %}
+            <div class="col-12">
+              <p>Prompt: ijdfijaidfainjduhfi hdsudhfugd hdfuahhafjnana aifuahfuhafaf ahhfhaufudhfuahdufih</p>
+            </div>
             <div class="col-12">
               <textarea id="newtextdata" name="newtextdata" class="form-control px-0 mb-4"
                 placeholder="Type Confession Here"></textarea>
