@@ -4,7 +4,7 @@ import spacy
 from django.conf import settings
 from nltk.tokenize import sent_tokenize
 import nltk 
-# from .models import user_data
+from .models import User_Data
 # Create your views here.
 
 def displayform(request):
@@ -58,7 +58,8 @@ def checkhome(request):
         context = { "faketext" : predicted,
                     "list":numeric_symptoms_sent_list.items()
                     }
-        # new_data = user_data.objects.create(text=textcon,total_result=predicted,sent_result=data_base_arr)
+        new_data = User_Data.objects.create(text=textcon,total_result=predicted,sent_result=data_base_arr)
+        new_data.save()
         return render(request,'contact.html',context)
     return render(request,'home.html')
 
