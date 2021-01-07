@@ -45,6 +45,7 @@ def checkhome(request):
         predicted = float(str(prediction.item() * 100)[:4])
         sent_tokens = sent_tokenize(textcon)
         numeric_symptoms_sent_list={}
+        data_base_arr = []
         for sentence in sent_tokens:
             tokenized = [tok.text for tok in settings.NLP.tokenizer(sentence)]
             indexed = [settings.OWN_TEXT.stoi[t] for t in tokenized]
@@ -52,9 +53,11 @@ def checkhome(request):
             tensor = tensor.unsqueeze(1)
             prediction = torch.sigmoid(settings.OWN_DATA_MODEL(tensor))
             numeric_symptoms_sent_list[sentence]= float(str(prediction.item() * 100)[:4])
+            data_base_arr.append(float(str(prediction.item() * 100)[:4]))
         context = { "faketext" : predicted,
                     "list":numeric_symptoms_sent_list.items()
                     }
+        print(data_base_arr)
         return render(request,'contact.html',context)
     return render(request,'home.html')
 
