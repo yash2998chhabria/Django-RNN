@@ -38,6 +38,8 @@ def displayform(request):
 def checkhome(request):
     if request.method == 'POST':
         textcon = request.POST.get('newtextdata')
+        checkbox_val = request.POST.get('checkbox')
+        print(checkbox_val)
         tokenized = [tok.text for tok in settings.NLP.tokenizer(textcon)]
         indexed = [settings.NEW_TEXT.stoi[t] for t in tokenized]
         tensor = torch.LongTensor(indexed)
