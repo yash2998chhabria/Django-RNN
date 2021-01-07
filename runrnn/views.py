@@ -39,8 +39,6 @@ def checkhome(request):
     if request.method == 'POST':
         textcon = request.POST.get('newtextdata')
         checkbox_val = request.POST.get('checkbox')
-        if checkbox_val:
-            print("true")
         tokenized = [tok.text for tok in settings.NLP.tokenizer(textcon)]
         indexed = [settings.NEW_TEXT.stoi[t] for t in tokenized]
         tensor = torch.LongTensor(indexed)
@@ -61,8 +59,10 @@ def checkhome(request):
         context = { "faketext" : predicted,
                     "list":numeric_symptoms_sent_list.items()
                     }
-        new_data = User_Data.objects.create(text=textcon,total_result=predicted,sent_result=data_base_arr)
-        new_data.save()
+        if checkbox_val:
+            new_data = User_Data.objects.create(text=textcon,total_result=predicted,sent_result=data_base_arr)
+            new_data.save()
+
         return render(request,'contact.html',context)
     return render(request,'home.html')
 
