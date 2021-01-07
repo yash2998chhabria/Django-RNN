@@ -9,7 +9,7 @@
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
+
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
   <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
@@ -20,7 +20,7 @@
 
   <!-- Main Stylesheet -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  
+
   <!--Favicon-->
   <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
   <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
@@ -29,7 +29,7 @@
 </head>
 
 <body>
-  
+
 
   <header class="navigation fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -38,7 +38,7 @@
         aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
@@ -63,18 +63,18 @@
       </div>
     </nav>
   </header>
-  
+
   <!-- hero area -->
   <section class="hero-area bg-primary" id="parallax">
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-12 ">
-          <h2 class="text-white"> {% if faketext > 50 %} Depression Symptoms May be Present {% else %} Depression Symptoms minimal or absent {% endif %}  <br>({{faketext | slice:":4"}}%)</h2>   
+          <h2 class="text-white"> {% if faketext > 50 %} Depression Symptoms May be Present {% else %} Depression Symptoms minimal or absent {% endif %}  <br>({{faketext | slice:":4"}}%)</h2>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- page title -->
 
 
@@ -89,27 +89,27 @@
             <div class="wave" data-progress="{{value}}"></div>
           </div>
           <div class="card-footer bg-white">
-            <a data-toggle="modal" data-target="#id{{value}}"><h4 class="card-title">{{key | slice:":10"}}... {{value | slice:":4"}}</h4></a>
+            <a data-toggle="modal" data-target='{{key | slice:":2"}}'><h4 class="card-title">{{key}} {{value|slice:":2"}}</h4></a>
           </div>
         </div>
       </div>
 
-      <div class="modal fade" id="id{{value| slice:':2'}}" role="dialog">
-        <div class="modal-dialog">
-        
+      <!--<div class="modal fade" id='{{key | slice:":2"}}' role="dialog">-->
+      <!--  <div class="modal-dialog">-->
+
           <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <p>{{key}}</p>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <!-- <div class="modal-body">
-              <p>Some text in the modal.</p>
-            </div> -->
-          </div>
-          
-        </div>
-      </div>
+      <!--    <div class="modal-content">-->
+      <!--      <div class="modal-header">-->
+      <!--        <p>{{key}}</p>-->
+      <!--        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+      <!--      </div>-->
+            <!-- <div class="modal-body">-->
+      <!--        <p>Some text in the modal.</p>-->
+      <!--      </div> -->
+      <!--    </div>-->
+
+      <!--  </div>-->
+      <!--</div>-->
       {% endfor %}
 
     </div>
@@ -117,7 +117,7 @@
 
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -128,7 +128,7 @@
           <p>Some text in the modal.</p>
         </div> -->
       </div>
-      
+
     </div>
   </div>
 </section>
