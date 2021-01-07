@@ -1,57 +1,8 @@
-
+{% extends 'base.html' %}  
 {% load static %}
-<!DOCTYPE html>
-<html lang="zxx">
-
-<head>
-  <meta charset="utf-8">
-  <title>Mindset| Depression Symptoms Prediction Model</title>
-
-  <!-- mobile responsive meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <!-- ** Plugins Needed for the Project ** -->
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
-  <!-- slick slider -->
-  <link rel="stylesheet" href="{% static 'plugins/slick/slick.css' %}">
-  <!-- themefy-icon -->
-  <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
-
-  <!-- Main Stylesheet -->
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-  <!--Favicon-->
-  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-
-</head>
-
-<body>
 
 
-  <header class="navigation fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand font-tertiary h3" href="/">Mindset</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">about</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
+{% block base %}
 <!-- hero area -->
 <section class="hero-area bg-primary" id="parallax">
   <div class="container">
@@ -117,7 +68,7 @@
 </section>
 
 <!-- contact -->
-<section id="textinput" class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
+<section id="textinput" class="section" data-background="images/backgrounds/bg-dots.png">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
@@ -145,37 +96,4 @@
 <!-- /contact -->
 
 
-<!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h5 class="text-light">Email</h5>
-        <p class="text-white paragraph-lg font-secondary">yash2998chhabria@email.com</p>
-      </div>
-      <div class="col-md-4">
-        <h5 class="text-light">Phone</h5>
-        <p class="text-white paragraph-lg font-secondary">+91 832 956 4644</p>
-      </div>
-      <div class="col-md-4">
-        <h5 class="text-light">Github</h5>
-        <a href="https://github.com/yash2998chhabria"><p class="text-white paragraph-lg font-secondary"><i class="ti-github" aria-hidden="true" style="font-size:24px"></i> Yash2998Chhabria</p></a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- jQuery -->
-<script src="{% static 'plugins/jQuery/jquery.min.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
-<!-- slick slider -->
-<script src="{% static 'plugins/slick/slick.min.js' %}"></script>
-<!-- filter -->
-<script src="{% static 'plugins/shuffle/shuffle.min.js' %}"></script>
-
-<!-- Main Script -->
-<script src="{% static 'js/script.js' %}"></script>
-
-</body>
-</html>
+{% endblock %}
