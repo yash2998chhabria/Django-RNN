@@ -19,6 +19,7 @@ import re
 import torch.nn as nn
 from nltk.tokenize import sent_tokenize
 import nltk 
+nltk.download('punkt')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '946xhx(+tc1@iy8b=7+1=1@2v(p=43-ii7dt9sw$b*^#d)@w3)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.detectdepression.com','2998yashchhabria.pythonanywhere.com']
 
